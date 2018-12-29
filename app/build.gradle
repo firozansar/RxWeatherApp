@@ -7,11 +7,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.konradszewczuk.weatherapp"
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -28,41 +28,41 @@ android {
     }
 }
 
-ext.daggerVersion = '2.11'
-ext.roomVersion = '1.0.0'
+ext.daggerVersion = '2.16'
+ext.roomVersion = '1.1.1'
 ext.mockitoVersion = '2.11.0'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
     testCompile "org.mockito:mockito-core:$mockitoVersion"
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // UI
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
-    implementation 'com.android.support:design:26.1.0'
-    implementation 'com.android.support:recyclerview-v7:26.1.0'
-    implementation 'com.android.support:cardview-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
     // ViewModel and LiveData
-    implementation "android.arch.lifecycle:extensions:1.0.0"
-    annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
 
     // Retrofit
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile "com.squareup.retrofit2:converter-gson:2.3.0"
-    compile 'com.squareup.okhttp3:okhttp:3.9.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    compile 'com.squareup.retrofit2:retrofit:2.4.0'
+    compile "com.squareup.retrofit2:converter-gson:2.4.0"
+    compile 'com.squareup.okhttp3:okhttp:3.11.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.11.0'
 
     // RxJava
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.8'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
     implementation 'com.github.pwittchen:reactivenetwork-rx2:0.12.3'
 
 
@@ -70,7 +70,7 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:$roomVersion"
     implementation "android.arch.persistence.room:rxjava2:$roomVersion"
     kapt "android.arch.persistence.room:compiler:$roomVersion"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.2.10"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.11"
     androidTestImplementation "android.arch.persistence.room:testing:$roomVersion"
 
     // Dagger
@@ -78,9 +78,9 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
     // Parcerel
-    compile 'org.parceler:parceler-api:1.1.9'
-    kapt 'org.parceler:parceler:1.1.9'
+    compile 'org.parceler:parceler-api:1.1.11'
+    kapt 'org.parceler:parceler:1.1.11'
 
     // Gson
-    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
 }

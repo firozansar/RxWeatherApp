@@ -6,8 +6,6 @@ import dagger.Module
 import dagger.Binds
 
 
-
-
 @Module
 abstract class WeatherRepositoryModule {
     @Binds
