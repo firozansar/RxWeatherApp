@@ -1,11 +1,11 @@
 package info.firozansari.weatherapp.ui.adapters
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.konradszewczuk.weatherapp.R
+import info.firozansari.weatherapp.R
 import info.firozansari.weatherapp.domain.dto.WeeklyWeatherDTO
 import info.firozansari.weatherapp.utils.StringFormatter.convertToValueWithUnit
 import info.firozansari.weatherapp.utils.StringFormatter.unitDegreesCelsius

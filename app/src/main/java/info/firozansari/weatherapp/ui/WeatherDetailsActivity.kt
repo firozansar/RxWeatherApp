@@ -1,11 +1,11 @@
 package info.firozansari.weatherapp.ui
 
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.DefaultItemAnimator
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.components.XAxis
@@ -13,7 +13,7 @@ import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import com.konradszewczuk.weatherapp.R
+import info.firozansari.weatherapp.R
 import info.firozansari.weatherapp.ui.adapters.WeeklyWeatherAdapter
 import info.firozansari.weatherapp.domain.dto.WeatherDetailsDTO
 import info.firozansari.weatherapp.domain.dto.WeeklyWeatherDTO

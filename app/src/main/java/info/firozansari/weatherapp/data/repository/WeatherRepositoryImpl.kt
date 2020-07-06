@@ -23,7 +23,7 @@ class WeatherRepositoryImpl @Inject constructor(
     override fun getWeather(cityName: String): Single<WeatherDetailsDTO> {
 
         return remoteWeatherDataSource.requestCityAddressByName(cityName)
-                .flatMap({ locationResponse: LocationResponse ->
+                .flatMap { locationResponse: LocationResponse ->
                     remoteWeatherDataSource.requestWeatherForCity(
                             locationResponse.results[0].geometry.location.lat.toString(),
                             locationResponse.results[0].geometry.location.lng.toString()
@@ -34,7 +34,7 @@ class WeatherRepositoryImpl @Inject constructor(
                                         weatherResponse
                                 )
                             }
-                })
+                }
                 .retry(1)
 
     }

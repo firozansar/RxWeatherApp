@@ -1,6 +1,6 @@
 package info.firozansari.weatherapp.data.room
 
-import android.arch.persistence.room.*
+import androidx.room.*
 import io.reactivex.Flowable
 
 @Dao

@@ -11,9 +11,9 @@ data class LocationResponse(
 
 data class Result(
         val address_components: List<AddressComponent>,
-        val formatted_address: String, //Londyn, Wielka Brytania
+        val formatted_address: String,
         val geometry: Geometry,
-        val place_id: String, //ChIJdd4hrwug2EcRmSrV3Vo6llI
+        val place_id: String,
         val types: List<String>
 )
 
@@ -31,7 +31,7 @@ data class Location(
 )
 
 data class AddressComponent(
-        val long_name: String, //Londyn
-        val short_name: String, //Londyn
+        val long_name: String, //London
+        val short_name: String, //London
         val types: List<String>
 )

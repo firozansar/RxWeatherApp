@@ -1,8 +1,8 @@
 package info.firozansari.weatherapp.ui
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -22,7 +22,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import java.util.*
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork
-import com.konradszewczuk.weatherapp.R
+import info.firozansari.weatherapp.R
 import info.firozansari.weatherapp.di.WeatherApplication
 import info.firozansari.weatherapp.domain.dto.WeatherDetailsDTO
 import io.reactivex.disposables.Disposable

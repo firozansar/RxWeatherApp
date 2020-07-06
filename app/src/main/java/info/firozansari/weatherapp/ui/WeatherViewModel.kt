@@ -1,6 +1,6 @@
 package info.firozansari.weatherapp.ui
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import info.firozansari.weatherapp.data.repository.WeatherRepository
 
 import javax.inject.Inject
