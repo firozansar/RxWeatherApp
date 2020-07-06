@@ -1,15 +1,10 @@
 # WeatherApp
 
-App for showing basic weather forecast for chosen city using MVVM pattern.
+Android App for showing basic weather forecast for chosen city using MVVM pattern.
 
 * You can store already searched cities
 * You can get current weather forecast for searched city and also weather forecast for next hours and week
 * You must have working internet connection to be able to fetch weather forecast
-
-###### Demo
-
-![](https://i.imgur.com/Kyq5EQN.png)
-![](https://i.imgur.com/m261gQl.png)
 
 ## Used tools
 
@@ -29,7 +24,6 @@ App for showing basic weather forecast for chosen city using MVVM pattern.
 * [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/start)
 
 
-Inspired by Konrad Szewczuk's medium blog. Many thanks!!
 
 
 
