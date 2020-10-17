@@ -9,7 +9,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.konradszewczuk.weatherapp"
+        applicationId "info.firozansari.weatherapp"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 2
