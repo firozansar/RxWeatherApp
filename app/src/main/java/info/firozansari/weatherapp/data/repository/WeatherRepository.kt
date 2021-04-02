@@ -1,7 +1,7 @@
 package info.firozansari.weatherapp.data.repository
 
 import info.firozansari.weatherapp.data.room.CityEntity
-import info.firozansari.weatherapp.domain.dto.WeatherDetailsDTO
+import info.firozansari.weatherapp.data.WeatherDetailsDTO
 import io.reactivex.Flowable
 import io.reactivex.Single
 

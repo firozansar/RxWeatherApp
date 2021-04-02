@@ -21,7 +21,7 @@ import info.firozansari.weatherapp.data.repository.WeatherRepositoryImpl
 import info.firozansari.weatherapp.data.room.CityEntity
 import info.firozansari.weatherapp.data.room.RoomDataSource
 import info.firozansari.weatherapp.data.room.WeatherCitiesDao
-import info.firozansari.weatherapp.domain.dto.WeatherDetailsDTO
+import info.firozansari.weatherapp.data.WeatherDetailsDTO
 import info.firozansari.weatherapp.utils.TransformersDTO.transformToWeatherDetailsDTO
 import io.reactivex.Flowable
 import io.reactivex.Single

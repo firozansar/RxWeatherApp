@@ -15,8 +15,8 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import info.firozansari.weatherapp.R
 import info.firozansari.weatherapp.ui.adapters.WeeklyWeatherAdapter
-import info.firozansari.weatherapp.domain.dto.WeatherDetailsDTO
-import info.firozansari.weatherapp.domain.dto.WeeklyWeatherDTO
+import info.firozansari.weatherapp.data.WeatherDetailsDTO
+import info.firozansari.weatherapp.data.WeeklyWeatherDTO
 import info.firozansari.weatherapp.utils.ChartFormatter
 import info.firozansari.weatherapp.utils.StringFormatter.convertTimestampToDayAndHourFormat
 import info.firozansari.weatherapp.utils.StringFormatter.convertToValueWithUnit

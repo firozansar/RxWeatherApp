@@ -1,9 +1,9 @@
 package info.firozansari.weatherapp.utils
 
 import info.firozansari.weatherapp.data.remote.weatherModel.WeatherResponse
-import info.firozansari.weatherapp.domain.dto.HourlyWeatherDTO
-import info.firozansari.weatherapp.domain.dto.WeatherDetailsDTO
-import info.firozansari.weatherapp.domain.dto.WeeklyWeatherDTO
+import info.firozansari.weatherapp.data.HourlyWeatherDTO
+import info.firozansari.weatherapp.data.WeatherDetailsDTO
+import info.firozansari.weatherapp.data.WeeklyWeatherDTO
 import java.util.*
 
 

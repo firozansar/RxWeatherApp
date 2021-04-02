@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import info.firozansari.weatherapp.R
-import info.firozansari.weatherapp.domain.dto.WeeklyWeatherDTO
+import info.firozansari.weatherapp.data.WeeklyWeatherDTO
 import info.firozansari.weatherapp.utils.StringFormatter.convertToValueWithUnit
 import info.firozansari.weatherapp.utils.StringFormatter.unitDegreesCelsius
 import info.firozansari.weatherapp.utils.WeatherMathUtils.convertFahrenheitToCelsius

@@ -2,9 +2,9 @@ package info.firozansari.weatherapp
 
 import info.firozansari.weatherapp.data.repository.WeatherRepository
 import info.firozansari.weatherapp.data.room.CityEntity
-import info.firozansari.weatherapp.domain.dto.HourlyWeatherDTO
-import info.firozansari.weatherapp.domain.dto.WeatherDetailsDTO
-import info.firozansari.weatherapp.domain.dto.WeeklyWeatherDTO
+import info.firozansari.weatherapp.data.HourlyWeatherDTO
+import info.firozansari.weatherapp.data.WeatherDetailsDTO
+import info.firozansari.weatherapp.data.WeeklyWeatherDTO
 import info.firozansari.weatherapp.ui.WeatherViewModel
 import io.reactivex.Flowable
 import io.reactivex.Single

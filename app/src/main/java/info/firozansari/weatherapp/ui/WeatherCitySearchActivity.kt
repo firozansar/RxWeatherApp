@@ -24,7 +24,7 @@ import java.util.*
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork
 import info.firozansari.weatherapp.R
 import info.firozansari.weatherapp.di.WeatherApplication
-import info.firozansari.weatherapp.domain.dto.WeatherDetailsDTO
+import info.firozansari.weatherapp.data.WeatherDetailsDTO
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 

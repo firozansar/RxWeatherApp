@@ -5,7 +5,7 @@ import info.firozansari.weatherapp.data.remote.locationModel.LocationResponse
 import info.firozansari.weatherapp.data.remote.weatherModel.WeatherResponse
 import info.firozansari.weatherapp.data.room.CityEntity
 import info.firozansari.weatherapp.data.room.RoomDataSource
-import info.firozansari.weatherapp.domain.dto.WeatherDetailsDTO
+import info.firozansari.weatherapp.data.WeatherDetailsDTO
 import info.firozansari.weatherapp.utils.TransformersDTO
 import io.reactivex.Completable
 import io.reactivex.Flowable
