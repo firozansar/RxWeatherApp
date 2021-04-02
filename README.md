@@ -6,7 +6,7 @@ Android App for showing basic weather forecast for chosen city using MVVM patter
 * You can get current weather forecast for searched city and also weather forecast for next hours and week
 * You must have working internet connection to be able to fetch weather forecast
 
-## Used tools
+## Main libraries used
 
 * [Kotlin](https://kotlinlang.org/)
 * [RxJava2](https://github.com/ReactiveX/RxJava)/[RxAndroid](https://github.com/ReactiveX/RxAndroid)/[RxBinding](https://github.com/JakeWharton/RxBinding)/[ReactiveNetwork](https://github.com/pwittchen/ReactiveNetwork)
