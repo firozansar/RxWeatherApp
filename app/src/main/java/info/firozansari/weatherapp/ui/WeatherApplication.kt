@@ -1,6 +1,7 @@
-package info.firozansari.weatherapp.di
+package info.firozansari.weatherapp.ui
 
 import android.app.Application
+import info.firozansari.weatherapp.di.*
 
 
 class WeatherApplication : Application(){

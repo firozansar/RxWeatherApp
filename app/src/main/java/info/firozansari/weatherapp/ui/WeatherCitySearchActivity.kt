@@ -15,7 +15,6 @@ import info.firozansari.weatherapp.data.room.CityEntity
 
 import info.firozansari.weatherapp.utils.InputValidator.isValidCityInput
 import io.reactivex.Observable
-import kotlinx.android.synthetic.main.activity_weather_city_search.*
 import org.parceler.Parcels
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -23,8 +22,8 @@ import io.reactivex.schedulers.Schedulers
 import java.util.*
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork
 import info.firozansari.weatherapp.R
-import info.firozansari.weatherapp.di.WeatherApplication
 import info.firozansari.weatherapp.data.WeatherDetailsDTO
+import info.firozansari.weatherapp.databinding.ActivityWeatherCitySearchBinding
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
@@ -33,19 +32,20 @@ class WeatherCitySearchActivity : AppCompatActivity() {
     @Inject
     lateinit var viewModelFactory: WeatherViewModelFactory
     private lateinit var viewModel: WeatherViewModel
+    private lateinit var binding: ActivityWeatherCitySearchBinding
     private var isConnectedToInternet: Boolean = false
     private var searchedCityNames = ArrayList<String>()
     private var compositeDisposable: CompositeDisposable = CompositeDisposable()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_weather_city_search)
-
         WeatherApplication.appComponent.inject(this)
+        super.onCreate(savedInstanceState)
+        binding = ActivityWeatherCitySearchBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(WeatherViewModel::class.java)
 
-        val itemInputNameObservable = RxTextView.textChanges(autocomplete_textView)
+        val itemInputNameObservable = RxTextView.textChanges(binding.autocompleteTextView)
                 .map { inputText: CharSequence -> inputText.isEmpty() || !isValidCityInput(inputText.toString()) }
                 .distinctUntilChanged()
 
@@ -55,13 +55,13 @@ class WeatherCitySearchActivity : AppCompatActivity() {
     }
 
     private fun setupSearchedCityClickedListener() {
-        cityButton.setOnClickListener {
+        binding.cityButton.setOnClickListener {
             if (!isConnectedToInternet) {
                 Toast.makeText(this, getString(R.string.user_has_not_internet_connection_message), Toast.LENGTH_SHORT).show()
             }
             else{
                 processRequestStartUI()
-                val searchedCityName = autocomplete_textView.text.toString()
+                val searchedCityName = binding.autocompleteTextView.text.toString()
                 setupWeatherDetailsObserver(searchedCityName)?.let { it -> compositeDisposable.add(it) }
             }
         }
@@ -69,9 +69,9 @@ class WeatherCitySearchActivity : AppCompatActivity() {
 
     private fun setupTextInputObserver(itemInputNameObservable: Observable<Boolean>): Disposable {
         return itemInputNameObservable.subscribe { inputIsEmpty: Boolean ->
-            cityTextInputLayout.setError(getString(R.string.invalid_input_message))
-            cityTextInputLayout.setErrorEnabled(inputIsEmpty)
-            cityButton?.isEnabled = !inputIsEmpty
+            binding.cityTextInputLayout.error = getString(R.string.invalid_input_message)
+            binding.cityTextInputLayout.isErrorEnabled = inputIsEmpty
+            binding.cityButton.isEnabled = !inputIsEmpty
         }
     }
 
@@ -100,15 +100,15 @@ class WeatherCitySearchActivity : AppCompatActivity() {
     }
 
     private fun processRequestStartUI() {
-        inputLinearLayout.isEnabled = false
-        inputLinearLayout.alpha = 0.5f
-        progressBar.visibility = View.VISIBLE
+        binding.inputLinearLayout.isEnabled = false
+        binding.inputLinearLayout.alpha = 0.5f
+        binding.progressBar.visibility = View.VISIBLE
     }
 
     private fun resolveRequestEndUI() {
-        inputLinearLayout.isEnabled = true
-        inputLinearLayout.alpha = 1f
-        progressBar.visibility = View.INVISIBLE
+        binding.inputLinearLayout.isEnabled = true
+        binding.inputLinearLayout.alpha = 1f
+        binding.progressBar.visibility = View.INVISIBLE
     }
 
     private fun navigateToDetailsActivity(weatherResponse: WeatherDetailsDTO?) {
@@ -135,8 +135,8 @@ class WeatherCitySearchActivity : AppCompatActivity() {
                     val adapter = ArrayAdapter(this,
                             android.R.layout.simple_dropdown_item_1line, searchedCityNames)
 
-                    autocomplete_textView.setAdapter(adapter)
-                    autocomplete_textView.threshold = 0
+                    binding.autocompleteTextView.setAdapter(adapter)
+                    binding.autocompleteTextView.threshold = 0
                 }
     }
 
@@ -153,7 +153,7 @@ class WeatherCitySearchActivity : AppCompatActivity() {
                             }
                         },
                         { t: Throwable? ->
-                            Log.v("ReactiveNetwork", t?.message)
+                            Log.v("ReactiveNetwork", "error")
                         }
                 )
     }

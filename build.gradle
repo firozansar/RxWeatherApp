@@ -13,10 +13,9 @@ buildscript {
         retrofit_coroutines_adapter_version = "0.9.2"
 
         dagger_version = '2.21'
-        roomVersion = '1.1.1'
         mockitoVersion = '2.11.0'
 
-        room_version = "2.3.0-rc01"
+        room_version = "2.2.4"
 
         arch_testing_version = "2.1.0"
         testRunner_version = "1.1.1"

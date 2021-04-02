@@ -1,55 +1,62 @@
-<FrameLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
+    <data>
+
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/app_background" />
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/inputLinearLayout"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputLayout
-
-            android:id="@+id/cityTextInputLayout"
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/app_background" />
 
-            android:gravity="center">
+        <LinearLayout
+            android:id="@+id/inputLinearLayout"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <AutoCompleteTextView
-                android:id="@+id/autocomplete_textView"
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/cityTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:imeOptions="actionDone"
-                android:hint="City" />
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
 
-        </com.google.android.material.textfield.TextInputLayout>
+                android:gravity="center">
 
-        <Button
-            android:id="@+id/cityButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Show" />
+                <AutoCompleteTextView
+                    android:id="@+id/autocomplete_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:hint="City" />
 
-    </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <ProgressBar
-        android:visibility="invisible"
-        android:id="@+id/progressBar"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</FrameLayout>
+            <Button
+                android:id="@+id/cityButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Show" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:visibility="invisible"
+            android:id="@+id/progressBar"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+</layout>
 

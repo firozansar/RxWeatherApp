@@ -17,6 +17,7 @@ import info.firozansari.weatherapp.R
 import info.firozansari.weatherapp.ui.adapters.WeeklyWeatherAdapter
 import info.firozansari.weatherapp.data.WeatherDetailsDTO
 import info.firozansari.weatherapp.data.WeeklyWeatherDTO
+import info.firozansari.weatherapp.databinding.ActivityWeatherDetailsBinding
 import info.firozansari.weatherapp.utils.ChartFormatter
 import info.firozansari.weatherapp.utils.StringFormatter.convertTimestampToDayAndHourFormat
 import info.firozansari.weatherapp.utils.StringFormatter.convertToValueWithUnit
@@ -24,15 +25,18 @@ import info.firozansari.weatherapp.utils.StringFormatter.unitDegreesCelsius
 import info.firozansari.weatherapp.utils.StringFormatter.unitPercentage
 import info.firozansari.weatherapp.utils.StringFormatter.unitsMetresPerSecond
 import info.firozansari.weatherapp.utils.WeatherMathUtils.convertFahrenheitToCelsius
-import kotlinx.android.synthetic.main.activity_weather_details.*
 import org.parceler.Parcels
 import java.util.*
 
 class WeatherDetailsActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityWeatherDetailsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_weather_details)
+        binding = ActivityWeatherDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         val weatherDetails = Parcels.unwrap<WeatherDetailsDTO>(intent.getParcelableExtra(getString(R.string.intentWeatherDetailsParcelerBundleName)))
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -40,35 +44,35 @@ class WeatherDetailsActivity : AppCompatActivity() {
 
         setupMainWeatherDetailsInfo(weatherDetails)
         setupRecyclerView(weatherDetails)
-        setupHourlyChart(chartHourlyWeather, weatherDetails)
+        setupHourlyChart(binding.chartHourlyWeather, weatherDetails)
 
         weatherDetails.temperature?.let { setupTemperatureTextColor(it) }
     }
 
     private fun setupMainWeatherDetailsInfo(weatherDetails: WeatherDetailsDTO) {
-        textViewCurrentTime.text = convertTimestampToDayAndHourFormat(Date().time)
-        textViewCurrentTemperature.text = convertToValueWithUnit(2, unitDegreesCelsius, weatherDetails.temperature)
-        textViewWeatherSummary.text = weatherDetails.weatherSummary
-        textViewHumidityValue.text = convertToValueWithUnit(2, unitPercentage, weatherDetails.humidity)
-        textViewWindSpeedValue.text = convertToValueWithUnit(2, unitsMetresPerSecond, weatherDetails.windSpeed)
-        textViewCloudCoverageValue.text = convertToValueWithUnit(2, unitPercentage, weatherDetails.cloudsPercentage)
+        binding.textViewCurrentTime.text = convertTimestampToDayAndHourFormat(Date().time)
+        binding.textViewCurrentTemperature.text = convertToValueWithUnit(2, unitDegreesCelsius, weatherDetails.temperature)
+        binding.textViewWeatherSummary.text = weatherDetails.weatherSummary
+        binding.textViewHumidityValue.text = convertToValueWithUnit(2, unitPercentage, weatherDetails.humidity)
+        binding.textViewWindSpeedValue.text = convertToValueWithUnit(2, unitsMetresPerSecond, weatherDetails.windSpeed)
+        binding.textViewCloudCoverageValue.text = convertToValueWithUnit(2, unitPercentage, weatherDetails.cloudsPercentage)
     }
 
     private fun setupRecyclerView(weatherDetails: WeatherDetailsDTO) {
         val weeklyWeatherList = weatherDetails.weeklyDayWeahterList as ArrayList<WeeklyWeatherDTO>
         val adapter: WeeklyWeatherAdapter? = WeeklyWeatherAdapter(weeklyWeatherList)
         val mLayoutManager = LinearLayoutManager(applicationContext)
-        recyclerViewWeeklyWeather.setLayoutManager(mLayoutManager)
-        recyclerViewWeeklyWeather.setItemAnimator(DefaultItemAnimator())
-        recyclerViewWeeklyWeather.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
-        recyclerViewWeeklyWeather.setAdapter(adapter)
+        binding.recyclerViewWeeklyWeather.layoutManager = mLayoutManager
+        binding.recyclerViewWeeklyWeather.itemAnimator = DefaultItemAnimator()
+        binding.recyclerViewWeeklyWeather.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        binding.recyclerViewWeeklyWeather.adapter = adapter
     }
 
     private fun setupTemperatureTextColor(temperature: Double) {
         when {
-            temperature < 10 -> textViewCurrentTemperature.setTextColor(Color.BLUE)
-            temperature in 10..20 -> textViewCurrentTemperature.setTextColor(Color.BLACK)
-            temperature > 20 -> textViewCurrentTemperature.setTextColor(Color.RED)
+            temperature < 10 -> binding.textViewCurrentTemperature.setTextColor(Color.BLUE)
+            10 >= temperature && temperature <= 20 -> binding.textViewCurrentTemperature.setTextColor(Color.BLACK)
+            temperature > 20 -> binding.textViewCurrentTemperature.setTextColor(Color.RED)
         }
     }
 
