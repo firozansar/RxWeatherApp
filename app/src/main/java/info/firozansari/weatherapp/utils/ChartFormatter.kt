@@ -9,8 +9,7 @@ import info.firozansari.weatherapp.utils.StringFormatter.convertToValueWithUnit
 import info.firozansari.weatherapp.utils.StringFormatter.unitDegrees
 import java.util.ArrayList
 
-
-object ChartFormatter{
+object ChartFormatter {
     class AxisValueFormatter(val values: ArrayList<String>) : IAxisValueFormatter {
 
         override fun getFormattedValue(value: Float, axis: AxisBase): String {
@@ -20,7 +19,12 @@ object ChartFormatter{
 
     class ValueFormatter : IValueFormatter {
 
-        override fun getFormattedValue(value: Float, entry: Entry, dataSetIndex: Int, viewPortHandler: ViewPortHandler): String {
+        override fun getFormattedValue(
+            value: Float,
+            entry: Entry,
+            dataSetIndex: Int,
+            viewPortHandler: ViewPortHandler
+        ): String {
             return convertToValueWithUnit(1, unitDegrees, value.toDouble())
         }
     }

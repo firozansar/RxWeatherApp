@@ -1,8 +1,9 @@
 package info.firozansari.weatherapp.utils
 
 import java.text.SimpleDateFormat
-import java.util.*
-
+import java.util.Date
+import java.util.Locale
+import java.util.TimeZone
 
 object StringFormatter {
     val unitPercentage = "%"
@@ -10,34 +11,34 @@ object StringFormatter {
     val unitsMetresPerSecond = "m/s"
     val unitDegreesCelsius = "\u2103"
 
-    fun convertTimestampToDayOfTheWeek(timestamp: Int) : String{
-       val formatter = SimpleDateFormat ("EEEE", Locale.ENGLISH)
-        val dayName = formatter.format(Date(timestamp.toLong()* 1000))
+    fun convertTimestampToDayOfTheWeek(timestamp: Int): String {
+        val formatter = SimpleDateFormat("EEEE", Locale.ENGLISH)
+        val dayName = formatter.format(Date(timestamp.toLong() * 1000))
         return dayName
     }
 
-    fun convertTimestampToDayAndHourFormat(timestamp: Long): String{
+    fun convertTimestampToDayAndHourFormat(timestamp: Long): String {
         val DAY_HOUR_MINUTE = "EEEE, HH:mm"
-        val formatter = SimpleDateFormat (DAY_HOUR_MINUTE, Locale.ENGLISH)
+        val formatter = SimpleDateFormat(DAY_HOUR_MINUTE, Locale.ENGLISH)
 
         val dateFormat = formatter.format(Date(timestamp))
         return dateFormat
     }
 
-    fun convertTimestampToHourFormat(timestamp: Long, timeZone: String?) : String{
+    fun convertTimestampToHourFormat(timestamp: Long, timeZone: String?): String {
         val HOUR_MINUTE = "HH:mm"
-        val formatter = SimpleDateFormat (HOUR_MINUTE)
-        formatter.setTimeZone(TimeZone.getTimeZone(timeZone))
+        val formatter = SimpleDateFormat(HOUR_MINUTE)
+        formatter.timeZone = TimeZone.getTimeZone(timeZone)
 
         val dayName = formatter.format(Date(timestamp * 1000))
         return dayName
     }
 
-    fun convertToValueWithUnit(precision: Int, unitSymbol: String, value: Double?): String{
+    fun convertToValueWithUnit(precision: Int, unitSymbol: String, value: Double?): String {
         return getPrecision(precision).format(value) + unitSymbol
     }
 
-    private fun getPrecision(precision: Int) : String{
+    private fun getPrecision(precision: Int): String {
         return "%." + precision + "f"
     }
 }

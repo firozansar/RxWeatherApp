@@ -1,13 +1,12 @@
 package info.firozansari.weatherapp.di
 
 import android.content.Context
-import info.firozansari.weatherapp.data.repository.WeatherRepository
-import info.firozansari.weatherapp.ui.WeatherViewModelFactory
 import dagger.Module
 import dagger.Provides
+import info.firozansari.weatherapp.data.repository.WeatherRepository
 import info.firozansari.weatherapp.ui.WeatherApplication
+import info.firozansari.weatherapp.ui.WeatherViewModelFactory
 import javax.inject.Singleton
-
 
 @Module
 class AppModule(private val weatherApplication: WeatherApplication) {
@@ -18,8 +17,7 @@ class AppModule(private val weatherApplication: WeatherApplication) {
 
     @Provides
     @Singleton
-    fun provideViewModelFactory(weatherRepository: WeatherRepository): WeatherViewModelFactory{
+    fun provideViewModelFactory(weatherRepository: WeatherRepository): WeatherViewModelFactory {
         return WeatherViewModelFactory(weatherRepository)
     }
-
 }

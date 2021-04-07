@@ -1,6 +1,5 @@
 package info.firozansari.weatherapp.data.remote
 
-
 class RemoteConfig {
     companion object {
         const val BASE_API_LAYER = "https://api.darksky.net/forecast/"

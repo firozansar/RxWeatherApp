@@ -1,6 +1,7 @@
 package info.firozansari.weatherapp
 
 import androidx.room.Room
+import androidx.test.InstrumentationRegistry.getContext
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import info.firozansari.weatherapp.data.room.CityEntity

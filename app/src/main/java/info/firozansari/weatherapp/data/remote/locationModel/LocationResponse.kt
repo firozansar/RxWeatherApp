@@ -3,7 +3,6 @@ package info.firozansari.weatherapp.data.remote.locationModel
 import info.firozansari.weatherapp.data.remote.locationModel.bounds.Bounds
 import info.firozansari.weatherapp.data.remote.locationModel.viewport.Viewport
 
-
 data class LocationResponse(
         val results: List<Result>,
         val status: String //OK
@@ -23,7 +22,6 @@ data class Geometry(
         val location_type: String, //APPROXIMATE
         val viewport: Viewport
 )
-
 
 data class Location(
         val lat: Double, //51.5073509
